@@ -43,6 +43,8 @@ def toggles(password):
 
         if toggle_shallow_bearing:
             project = st.sidebar.selectbox('Select one',['Clay','Tortue','Raven','ASWX','NaKika'])
+            if project == 'Clay':
+                mudmat_bearing_clay('main')
             
     else:
         st.subheader('Only a few web-app is available for guests.')
@@ -50,7 +52,7 @@ def toggles(password):
         if toggle_shallow_bearing:
             project = st.sidebar.selectbox('Select one',['Clay'])
             if project == 'Clay':
-                mudmat_bearing_clay()
+                mudmat_bearing_clay('guest')
         
         
 
