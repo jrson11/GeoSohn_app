@@ -31,20 +31,20 @@ def toggles(password):
     col1,col2,col3,col4 = st.columns(4)
 
     with col1:
-        toggle_map = st.toggle('Map')
-        toggle_SI = st.toggle('In-situ CPT')
+        toggle_map = st.toggle(':world_map: Map')
+        toggle_SI = st.toggle(':floppy_disk: In-situ CPT')
 
     with col2:
-        toggle_shallow_bearing = st.toggle('Mudmat Bearing Capacity')
+        toggle_shallow_bearing = st.toggle(':alembic: Mudmat Bearing Capacity')
         toggle_shallow_settlement = st.toggle('Mudmat Settlement')
 
     with col3:
-        toggle_pile_bearing = st.toggle('Suction Pile Bearing Capacity')
+        toggle_pile_bearing = st.toggle(':test_tube: Suction Pile Bearing Capacity')
         toggle_pile_settlement = st.toggle('Suction Pile Settlement')
 
     with col4:
-        toggle_lab = st.toggle('Soil Lab Testings')
-        toggle_lab = st.toggle('Numerical Modeling')
+        toggle_lab = st.toggle(':building_construction: Soil Lab Testings')
+        toggle_lab = st.toggle(':computer: Numerical Modeling')
 
 
 # ====================================================================
