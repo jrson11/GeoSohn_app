@@ -13,7 +13,12 @@ st.sidebar.write("Enter 'guest' to take tour")
 @st.cache_data()
 
 def mudmat_bearing_clay(key):
-    st.sidebar.write('Clay')
+    if key == 'guest':
+        from mudmat_bearing_capacity import guest
+        guest()
+    elif key == 'member':
+        from mudmat_bearing_capacity import main
+        main()
 
 ## --------------------------------------------------------------------
 def toggles(password):
