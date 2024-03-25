@@ -73,34 +73,3 @@ else:
     st.write('    2. :green[Verified]: All developed engineering tools will be verified with case studies.')
     st.write('    3. :green[Digital Twins]: Previous analoge data will be converted into digital to prepare the Data Science era.')
 
-    st.subheader(':blue[Contents]')
-    col1,col2,col3,col4 = st.columns(4)
-    with col1:
-        '''
-        \n 1. Project
-        \n 1.a Map
-        \n 1.b SoilProfile
-        \n 1.c LabTesting
-        '''
-    with col2:
-        '''
-        \n 2. Mudmat
-        \n 2.a Bearing
-        \n 2.b Settlement
-        \n 2.c PLAXIS
-        '''
-    with col3:
-        '''
-        \n 3. Pile
-        \n 3.a Bearing
-        \n 3.b Settlement
-        \n 3.c PLAXIS
-        '''
-    with col4:
-        '''
-        \n 4. Code
-        \n 4.a RP2A
-        \n 4.b RP2GEO
-        \n 4.c ISO19901
-        '''
-    
