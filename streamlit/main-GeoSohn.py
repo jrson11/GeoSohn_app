@@ -68,7 +68,7 @@ elif password == st.secrets['DB_password']:
 # 비밀번호가 틀리면 안내 메시지 출력
 else:
     st.write(':blue[Purpose]: To develop engineering tools for innovative work automation')
-    st.write('Author: Jung.Sohn')
+    st.write(':blue[Author]: :green[Jung.Sohn]')
     st.subheader(':blue[Features]')
     st.write('    1. :green[Confidential]: Apps are protected by password, and the password will be updated regularly.')
     st.write('    2. :green[Verified]: All apps will be verified with case studies.')
