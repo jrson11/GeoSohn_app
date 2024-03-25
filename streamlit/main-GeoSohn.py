@@ -40,13 +40,15 @@ def toggles(password):
     # Toggle 에 따른 서브펑션 실행
     if password == st.secrets['DB_password']:
         st.subheader('welcome')
-        
+
+        if toggle_shallow_bearing:
+            project = st.sidebar.selectbox('Select one',['Clay','Tortue','Raven','ASWX','NaKika'])
+            
     else:
         st.subheader('Only a few web-app is available for guests.')
         
         if toggle_shallow_bearing:
             project = st.sidebar.selectbox('Select one',['Clay'])
-
             if project == 'Clay':
                 mudmat_bearing_clay()
         
