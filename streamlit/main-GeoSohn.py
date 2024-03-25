@@ -26,6 +26,12 @@ def bp_mudmat_bearing():
 def bp_mudmat_settlement():
     from bp_mudmat import sub_mudmat_settlement
     sub_mudmat_settlement()
+
+def toggles(password):
+    col1,col2,col3,col4 = st.columns(4)
+
+    with col1:
+        toggle_map = st.toggle('Map')
     
 # ====================================================================
 ## 메인
@@ -33,6 +39,8 @@ def bp_mudmat_settlement():
 # 비밀번호가 맞으면 실행
 if password == 'guest':
     st.write("Welcome to :blue[GeoSohn] digital twins system. Guest can tour the table of contents.")
+    toggles(password)
+    
 
 elif password == st.secrets['DB_password']:
     st.write("Thanks for joining :blue[GeoSohn] digital twins system. Please click one of icons below.")
