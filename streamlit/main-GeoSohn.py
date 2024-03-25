@@ -15,8 +15,10 @@ st.sidebar.write("Enter 'guest' to take tour")
 # ====================================================================
 ## 서브펑션
 
+def mudmat_bearing_clay():
+    st.sidebar.write('Clay')
 
-
+## --------------------------------------------------------------------
 def toggles(password):
     col1,col2,col3,col4 = st.columns(4)
 
@@ -44,8 +46,13 @@ def toggles(password):
         
     else:
         st.subheader('Only a few web-app is available for guests.')
+        
         if toggle_shallow_bearing:
-            st.sidebar.selectbox('Select one',['eg_Clay'])
+            project = st.sidebar.selectbox('Select one',['Clay'])
+
+            if project = 'Clay':
+                mudmat_bearing_clay()
+        
         
 
 # ====================================================================
