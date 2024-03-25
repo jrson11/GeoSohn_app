@@ -19,7 +19,7 @@ def mudmat_bearing_clay(key):
         from mudmat_bearing_clay import main
         main()
         
-@st.cache_data()
+#@st.cache_data()
 
 ## --------------------------------------------------------------------
 def toggles(password):
