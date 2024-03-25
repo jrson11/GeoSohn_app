@@ -14,6 +14,7 @@ st.sidebar.write("Enter 'guest' to take tour")
 
 # ====================================================================
 ## 서브펑션
+@st.cache_data()
 
 def mudmat_bearing_clay():
     st.sidebar.write('Clay')
