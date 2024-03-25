@@ -32,16 +32,21 @@ def toggles(password):
 
     with col1:
         toggle_map = st.toggle('Map')
+        toggle_SI = st.toggle('In-situ CPT')
 
     with col2:
-        toggle_map = st.toggle('Shallow Foundation Bearing Capacity')
+        toggle_shallow_bearing = st.toggle('Mudmat Bearing Capacity')
+        toggle_shallow_settlement = st.toggle('Mudmat Settlement')
 
     with col3:
-        toggle_map = st.toggle('Suction Pile Bearing Capacity')
+        toggle_pile_bearing = st.toggle('Suction Pile Bearing Capacity')
+        toggle_pile_settlement = st.toggle('Suction Pile Settlement')
 
     with col4:
-        toggle_map = st.toggle('Soil Lab Testings')
-    
+        toggle_lab = st.toggle('Soil Lab Testings')
+        toggle_lab = st.toggle('Numerical Modeling')
+
+
 # ====================================================================
 ## 메인
 
