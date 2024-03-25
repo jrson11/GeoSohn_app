@@ -50,7 +50,7 @@ def main():
 
 def guest():
     sidebar()
-    st.sidebar.write('Guest')
+    st.write('Guest')
 
     col_A, col_B = st.columns([1,2])
 
