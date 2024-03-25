@@ -15,17 +15,7 @@ st.sidebar.write("Enter 'guest' to take tour")
 # ====================================================================
 ## 서브펑션
 
-def bp_project_maps():
-    from bp_project import sub_project_map
-    sub_project_map()
-    
-def bp_mudmat_bearing():
-    from bp_mudmat import sub_mudmat_bearing
-    sub_mudmat_bearing()
 
-def bp_mudmat_settlement():
-    from bp_mudmat import sub_mudmat_settlement
-    sub_mudmat_settlement()
 
 def toggles(password):
     col1,col2,col3,col4 = st.columns(4)
@@ -46,6 +36,13 @@ def toggles(password):
         toggle_lab = st.toggle(':building_construction: Soil Lab Testings')
         toggle_lab = st.toggle(':computer: Numerical Modeling')
 
+    # Toggle 에 따른 서브펑션 실행
+    if password == st.secrets['DB_password']:
+        st.write('Run subfunction')
+        
+    else:
+        st.subheader('Web-app is available only for members.')
+        
 
 # ====================================================================
 ## 메인
@@ -54,7 +51,6 @@ def toggles(password):
 if password == 'guest':
     st.write("Welcome to :blue[GeoSohn] digital twins system. Guest can tour the table of contents.")
     toggles(password)
-    
 
 elif password == st.secrets['DB_password']:
     st.write("Thanks for joining :blue[GeoSohn] digital twins system. Please click one of icons below.")
