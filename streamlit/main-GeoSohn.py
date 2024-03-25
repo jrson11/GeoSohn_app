@@ -73,3 +73,4 @@ else:
     st.write('    2. :green[Verified]: All developed engineering tools will be verified with case studies.')
     st.write('    3. :green[Digital Twins]: Previous analoge data will be converted into digital to prepare the Data Science era.')
 
+    st.image('https://geosohn.readthedocs.io/en/latest/_images/Canvas_of_Offshore_Geotech(Sep2023).png')
