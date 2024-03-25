@@ -1,7 +1,3 @@
-# Note:
-#     메인 파일을 가능한한 건드리지 말것. 서브 펑션 안에서 다 해결할 것
-#     서브 펑션은 csv 데이터를 수정가능하도록 셋팅할 것
-
 import streamlit as st
 
 # ====================================================================
@@ -77,5 +73,5 @@ else:
     st.write('    1. :green[Confidential]: Data is protected by password, and the password will be updated regularly.')
     st.write('    2. :green[Verified]: All developed engineering tools will be verified with case studies.')
     st.write('    3. :green[Digital Twins]: Previous analoge data will be converted into digital to prepare the Data Science era.')
-
+    #
     st.image('https://geosohn.readthedocs.io/en/latest/_images/Canvas_of_Offshore_Geotech(Sep2023).png')
