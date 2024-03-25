@@ -12,7 +12,7 @@ st.sidebar.write("Enter 'guest' to take tour")
 ## 서브펑션
 @st.cache_data()
 
-def mudmat_bearing_clay():
+def mudmat_bearing_clay(key):
     st.sidebar.write('Clay')
 
 ## --------------------------------------------------------------------
@@ -44,7 +44,7 @@ def toggles(password):
         if toggle_shallow_bearing:
             project = st.sidebar.selectbox('Select one',['Clay','Tortue','Raven','ASWX','NaKika'])
             if project == 'Clay':
-                mudmat_bearing_clay('main')
+                mudmat_bearing_clay('member')
             
     else:
         st.subheader('Only a few web-app is available for guests.')
