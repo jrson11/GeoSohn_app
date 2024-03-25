@@ -9,7 +9,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
 st.header('GeoSohn - Web App') # 타이틀
-password = st.sidebar.text_input('Please enter the :red[PASSWORD]','guest') # 비번 확인
+password = st.sidebar.text_input('Please enter the :red[PASSWORD] \n Enter 'guest' to take tour') # 비번 확인
 
 # ====================================================================
 ## 서브펑션
