@@ -8,6 +8,7 @@ st.header('GeoSohn - Web App') # 타이틀
 password = st.sidebar.text_input("Please enter the :red[PASSWORD]") # 비번 확인
 st.sidebar.write("Enter 'guest' to take tour")
 
+@st.cache_data()
 # ====================================================================
 ## 서브펑션
 
@@ -18,8 +19,7 @@ def mudmat_bearing_clay(key):
     elif key == 'member':
         from mudmat_bearing_clay import main
         main()
-        
-#@st.cache_data()
+
 
 ## --------------------------------------------------------------------
 def toggles(password):
