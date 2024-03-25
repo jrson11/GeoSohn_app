@@ -14,10 +14,10 @@ st.sidebar.write("Enter 'guest' to take tour")
 
 def mudmat_bearing_clay(key):
     if key == 'guest':
-        from mudmat_bearing_capacity import guest
+        from mudmat_bearing_clay import guest
         guest()
     elif key == 'member':
-        from mudmat_bearing_capacity import main
+        from mudmat_bearing_clay import main
         main()
 
 ## --------------------------------------------------------------------
