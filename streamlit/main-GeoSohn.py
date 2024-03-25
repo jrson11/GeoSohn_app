@@ -50,7 +50,7 @@ def toggles(password):
         if toggle_shallow_bearing:
             project = st.sidebar.selectbox('Select one',['Clay'])
 
-            if project = 'Clay':
+            if project == 'Clay':
                 mudmat_bearing_clay()
         
         
