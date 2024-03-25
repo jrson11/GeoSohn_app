@@ -36,6 +36,8 @@ def toggles(password):
         toggle_lab = st.toggle(':building_construction: Soil Lab Testings')
         toggle_lab = st.toggle(':computer: Numerical Modeling')
 
+    st.write('--------------------------------------------------------')
+    
     # Toggle 에 따른 서브펑션 실행
     if password == st.secrets['DB_password']:
         st.write('Run subfunction')
