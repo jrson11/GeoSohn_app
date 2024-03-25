@@ -32,6 +32,15 @@ def toggles(password):
 
     with col1:
         toggle_map = st.toggle('Map')
+
+    with col2:
+        toggle_map = st.toggle('Shallow Foundation Bearing Capacity')
+
+    with col3:
+        toggle_map = st.toggle('Suction Pile Bearing Capacity')
+
+    with col4:
+        toggle_map = st.toggle('Soil Lab Testings')
     
 # ====================================================================
 ## 메인
@@ -44,6 +53,7 @@ if password == 'guest':
 
 elif password == st.secrets['DB_password']:
     st.write("Thanks for joining :blue[GeoSohn] digital twins system. Please click one of icons below.")
+    toggles(password)
 
 
 # 비밀번호가 틀리면 안내 메시지 출력
