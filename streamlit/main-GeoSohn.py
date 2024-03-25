@@ -70,8 +70,8 @@ else:
     st.write(':blue[Purpose]: To develop engineering tools for innovative work automation')
     st.write('Author: Jung.Sohn')
     st.subheader(':blue[Features]')
-    st.write('    1. :green[Confidential]: Data is protected by password, and the password will be updated regularly.')
-    st.write('    2. :green[Verified]: All developed engineering tools will be verified with case studies.')
-    st.write('    3. :green[Digital Twins]: Previous analoge data will be converted into digital to prepare the Data Science era.')
+    st.write('    1. :green[Confidential]: Apps are protected by password, and the password will be updated regularly.')
+    st.write('    2. :green[Verified]: All apps will be verified with case studies.')
+    st.write('    3. :green[Digital Twins]: Previous data will be converted into digital to prepare the Data Science era.')
     #
     st.image('https://geosohn.readthedocs.io/en/latest/_images/Canvas_of_Offshore_Geotech(Sep2023).png')
