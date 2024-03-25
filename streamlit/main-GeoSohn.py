@@ -10,7 +10,6 @@ st.sidebar.write("Enter 'guest' to take tour")
 
 # ====================================================================
 ## 서브펑션
-@st.cache_data()
 
 def mudmat_bearing_clay(key):
     if key == 'guest':
@@ -19,6 +18,8 @@ def mudmat_bearing_clay(key):
     elif key == 'member':
         from mudmat_bearing_clay import main
         main()
+        
+@st.cache_data()
 
 ## --------------------------------------------------------------------
 def toggles(password):
