@@ -30,38 +30,11 @@ def bp_mudmat_settlement():
 ## 메인
 
 # 비밀번호가 맞으면 실행
-if password == st.secrets['DB_password']:
-    st.write("Thanks for joining :blue[Jung]'s database. Please click one of icons below.")
+if password == 'guest':
+    st.write("Welcome to :blue[GeoSohn] digital twins system. Guest can tour the table of contents.")
 
-    # ---------------------------------------------------------------------------
-    # 열을 나누어 아이콘 버튼 추가
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        st.markdown('#### Project')
-        on_icon_project_maps = st.toggle(':world_map: Map')
-
-    with col2:
-        st.markdown('#### Mudmat')
-        on_icon_mudmat_bearing = st.toggle(':fire: Mudmat: Bearing Capacity')
-
-    with col3:
-        st.markdown('#### Pile')
-        on_icon4 = st.toggle(':rocket: Pile: Bearing Capacity')
-
-    with col4:
-        st.markdown('#### API')
-        on_icon4 = st.toggle(':book: API and ISO')
-
-    # ---------------------------------------------------------------------------
-    # 아이콘 선택에 따라 서브 기능 실행
-    st.write('---------------------------------------')
-
-    if on_icon_project_maps:
-        bp_project_maps()
-        
-    if on_icon_mudmat_bearing:
-        bp_mudmat_bearing()
+elif password == st.secrets['DB_password']:
+    st.write("Thanks for joining :blue[GeoSohn] digital twins system. Please click one of icons below.")
 
 
 # 비밀번호가 틀리면 안내 메시지 출력
