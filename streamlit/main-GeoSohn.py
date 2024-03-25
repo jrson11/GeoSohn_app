@@ -34,16 +34,18 @@ def toggles(password):
 
     with col4:
         toggle_lab = st.toggle(':building_construction: Soil Lab Testings')
-        toggle_lab = st.toggle(':computer: Numerical Modeling')
+        toggle_FEM = st.toggle(':computer: Numerical Modeling')
 
     st.write('--------------------------------------------------------')
     
     # Toggle 에 따른 서브펑션 실행
     if password == st.secrets['DB_password']:
-        st.write('Run subfunction')
+        st.subheader('welcome')
         
     else:
-        st.subheader('Web-app is available only for members.')
+        st.subheader('Only a few web-app is available for guests.')
+        if toggle_shallow_bearing:
+            st.sidebar.selectbox('Select one',['eg_Clay'])
         
 
 # ====================================================================
