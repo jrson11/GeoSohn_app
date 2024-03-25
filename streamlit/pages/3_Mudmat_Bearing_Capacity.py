@@ -406,3 +406,5 @@ def guest():
         fig.suptitle('Undrained Load Interaction Envelopes', y=0.95)
     
         st.pyplot(fig)
+
+guest()
