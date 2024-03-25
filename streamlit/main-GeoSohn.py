@@ -8,8 +8,8 @@ import streamlit as st
 ## 셋업
 
 st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
-st.header('bp I&E - Web App') # 타이틀
-password = st.sidebar.text_input('Please enter the :red[PASSWORD]') # 비번 확인
+st.header('GeoSohn - Web App') # 타이틀
+password = st.sidebar.text_input('Please enter the :red[PASSWORD]','guest') # 비번 확인
 
 # ====================================================================
 ## 서브펑션
@@ -67,7 +67,7 @@ if password == st.secrets['DB_password']:
 # 비밀번호가 틀리면 안내 메시지 출력
 else:
     st.write(':blue[Purpose]: To develop engineering tools for innovative work automation')
-    st.write('Author: Jung.Sohn@bp.com')
+    st.write('Author: Jung.Sohn')
     st.subheader(':blue[Features]')
     st.write('    1. :green[Confidential]: Data is protected by password, and the password will be updated regularly.')
     st.write('    2. :green[Verified]: All developed engineering tools will be verified with case studies.')
