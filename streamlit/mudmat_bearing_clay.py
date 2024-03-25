@@ -31,9 +31,10 @@ def sidebar():
 ## 메인
 
 def main():
-  sidebar()
-  st.sidebar.write('Main')
+    sidebar()
+    st.sidebar.write('Main')
+
 
 def guest():
-  sidebar()
-  st.sidebar.write('Guest')
+    sidebar()
+    st.sidebar.write('Guest')
