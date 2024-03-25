@@ -211,7 +211,6 @@ def guest():
         list_kBeff_over_Su0 = [0,2,4,6,8,10]
         list_Scv =[0.18, 0.00, -0.05, -0.07, -0.09, -0.10]
         Scv = np.interp(x,list_kBeff_over_Su0,list_Scv)    # Note: p78, Table A.2
-        df_csv = export_to_df_csv(df_csv,'Scv',Scv)
 
         ## Correction factors
         # Ic_geo = 0.5 - 0.5[1 - H′/(Α′suo)]0.5         (A.21)
@@ -220,11 +219,9 @@ def guest():
         # su2 = F(Nc suo+ κΒ′/4) / Nc.
         # Kc_iso = 1 + sc + dc − ic− bc− gc             (A.16)
         Su2 = F*(Nc*Cu0 + k*Beff/4)/Nc
-        df_csv = export_to_df_csv(df_csv,'Su2',Su2)
 
         ## Ultimate H
         Qh_GEOult = Cu0*Aeff
-        df_csv = export_to_df_csv(df_csv,'Qh_GEOult',Qh_GEOult)
 
         ## Ultimate V
         geo_H = np.linspace(0,Qh_GEOult,ns)
