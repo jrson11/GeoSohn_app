@@ -118,8 +118,8 @@ def guest():
                 γ_loadH_ISO = st.number_input('γ_loadH_ISO', value = 1.35)
                 γ_mat_ISO = st.number_input('γ_mat_ISO', value = 1.25)
 
-        #with tab2:
-        st.header(':green[Deduced Values]')   
+        with tab2:
+            st.header(':green[Deduced Values]')   
 
         ## Effective area
         eB = Mext_B/(Vext+SW)   # Eccentricity in B (m)
