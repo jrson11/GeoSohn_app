@@ -84,18 +84,24 @@ with col_A:
             comment(flag_member,'Witdh')
         with col2:
             L = st.number_input('L (m)', value=10)    # Length (m)
+            comment(flag_member,'Length')
         with col3:
             D = st.number_input('D (m)', value=0)     # Embedment (m)
+            comment(flag_member,'Embedment')
 
         ## Loads
         st.subheader('Loads')
         col1, col2, col3 = st.columns(3)
         with col1:
-            SW = st.number_input('SW (kN)', value=0)         # Self weight (kN)
-            Vext = st.number_input('Vext (kN)', value=2000)  # External Vertical load (kN)
+            SW = st.number_input('SW (kN)', value=0)         # Self_weight (kN)
+            comment(flag_member,'Self_weight')
+            Vext = st.number_input('Vext (kN)', value=2000)  # External_Vertical_load (kN)
+            comment(flag_member,'External_Vertical_load')
         with col2:
-            Hext = st.number_input('Hext (kN)', value=500)   # External Horizontal load (kN)
-            θ = st.number_input('θ (deg)', value=0)           # angle between Hext and long axis (deg)
+            Hext = st.number_input('Hext (kN)', value=500)   # External_Horizontal_load (kN)
+            comment(flag_member,'External_Horizontal_load')
+            θ = st.number_input('θ (deg)', value=0)           # angle_between_Hext_and_long_axis (deg)
+            comment(flag_member,'angle_between_Hext_and_long_axis')
         with col3:
             Mext_B = st.number_input('Mext_B (kNm)', value=0) # Moment in B direction (kNm)
             Mext_L = st.number_input('Mext_L (kNm)', value=0) # Moment in L direction (kNm)
