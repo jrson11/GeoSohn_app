@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 #    03/20/2024: 클래스 너무 더러워서 중간 포기. 전체 스트럭쳐 재구성 노가다. 첫번째 예제 파일은 클래스 없이 가기로 결정
 #    03/22/2024: csv 파일에서 파라미터를 읽어서 그래프까진 그릴수 있는데, 저장이 안됨. overwrite_csv 펑션이 무용지물 상태
 #    03/25/2024: guest 와 member 용을 따로 나눠서 새로 퍼블릭하게 생성
+#    03/26/2024: member 전용 주석 추가 작업
 
 
 # ====================================================================
@@ -193,10 +194,17 @@ with col_A:
         else:
             Hep_tot = Hep
         H_B_base = max(round(Hext_L-(Hf+Hep_tot)/FSslid_API),0.00001)
+        #
+        value(toggle_value,'Su1',Su1,'average Su over skirt (kPa)')
+        value(toggle_value,'Hf',Hf,'soil friction on skirt (kN)')
+        value(toggle_value,'H_B_base',H_B_base,'Horizontal load at the base (kN)')
 
         ## Soil
-        Cu0 = Su0 + k*D             # Su at base
-        Su_bear = Su0+k*(D+B/4)     # Su at failure depth
+        Cu0 = Su0 + k*D             # Su at base (kPa)
+        Su_bear = Su0+k*(D+B/4)     # Su at failure depth (kPa)
+        #
+        value(toggle_value,'Cu0',Cu0,'Su at base (kPa)')
+        value(toggle_value,'Su_bear',Su_bear,'Su at failure depth (kPa)')
         
         ## Setup for Envelope
         ns = 201 # Number of samples to descretize H
