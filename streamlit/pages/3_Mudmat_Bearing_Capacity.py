@@ -355,6 +355,9 @@ with col_A:
         df_API['WSD_Vall'] = WSD_Vall
         df_API['LRFD_Hall'] = LRFD_Hall
         df_API['LRFD_Vall'] = LRFD_Vall
+        #
+        if flag_member == 1:
+            st.dataframe(df_API)
 
         ## GEO
         df_GEO = pd.DataFrame()
@@ -366,7 +369,9 @@ with col_A:
         df_GEO['GEO_Vall'].fillna(-1, inplace=True)
         df_GEO['GEO_Hult*slope'] = GEO_Hult*Vext_base/H_B_base
         df_GEO['GEO_Hult*slope-GEO_Vult'] = df_GEO['GEO_Hult*slope'] - df_GEO['GEO_Vult']
-
+        #
+        if flag_member == 1:
+            st.dataframe(df_GEO)
 
         ## ISO
         df_ISO = pd.DataFrame()
@@ -381,7 +386,9 @@ with col_A:
         INTERP_H = make_envelope_constant(interp_H)
         df_ISO['GEO_Vall'] = INTERP_H
         df_ISO['min_Vall'] = df_ISO[['GEO_Vall','ISO_Vall']].min(axis=1)
-
+        #
+        if flag_member == 1:
+            st.dataframe(df_ISO)
 
         ## FS: API 2A
         max_Vult_api = round(np.interp(H_B_base,api_H,api_Qv))
@@ -389,7 +396,6 @@ with col_A:
         #max_Qd_api = round(max_Hult_api*Vext_base/H_B_base)
         FS_bear_2A_ult = round(max_Vult_api/Vext_base,2)
         
-
         ## FS: API 2GEO
         idx_min_geo_ult_direction = df_GEO['GEO_Hult*slope-GEO_Vult'].abs().idxmin(0)
         hor_Qd_geo_ult = round(df_GEO.loc[idx_min_geo_ult_direction,'GEO_Hult'])
