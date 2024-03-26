@@ -51,8 +51,8 @@ def sidebar():
     st.sidebar.write(':blue[Author]: J.Sohn')
     st.sidebar.write(':blue[Last update]: 03/25/2024')
 
-def comment(flag_member,X):
-    if flag_member == 1:
+def comment(toggle,X):
+    if toggle == True:
         st.write(X)
 
 
@@ -83,32 +83,32 @@ with col_A:
         col1, col2, col3 = st.columns(3)
         with col1:
             B = st.number_input('B (m)', value=10)    # Witdh (m)
-            comment(flag_member,'Witdh')
+            comment(toggle_comment,'Witdh')
         with col2:
             L = st.number_input('L (m)', value=10)    # Length (m)
-            comment(flag_member,'Length')
+            comment(toggle_comment,'Length')
         with col3:
             D = st.number_input('D (m)', value=0)     # Embedment (m)
-            comment(flag_member,'Embedment')
+            comment(toggle_comment,'Embedment')
 
         ## Loads
         st.subheader('Loads')
         col1, col2, col3 = st.columns(3)
         with col1:
             SW = st.number_input('SW (kN)', value=0)         # Self_weight (kN)
-            comment(flag_member,'Self_weight')
+            comment(toggle_comment,'Self_weight')
             Vext = st.number_input('Vext (kN)', value=2000)  # External_Vertical_load (kN)
-            comment(flag_member,'External_Vertical_load')
+            comment(toggle_comment,'External_Vertical_load')
         with col2:
             Hext = st.number_input('Hext (kN)', value=500)   # External_Horizontal_load (kN)
-            comment(flag_member,'External_Horizontal_load')
+            comment(toggle_comment,'External_Horizontal_load')
             θ = st.number_input('θ (deg)', value=0)           # angle_between_Hext_and_long_axis (deg)
-            comment(flag_member,'angle_between_Hext_and_long_axis')
+            comment(toggle_comment,'angle_between_Hext_and_long_axis')
         with col3:
             Mext_B = st.number_input('Mext_B (kNm)', value=0) # Moment in B direction (kNm)
-            comment(flag_member,'Moment in B direction')
+            comment(toggle_comment,'Moment in B direction')
             Mext_L = st.number_input('Mext_L (kNm)', value=0) # Moment in L direction (kNm)
-            comment(flag_member,'Moment in L direction')
+            comment(toggle_comment,'Moment in L direction')
 
         ## Soil
         st.subheader('Soil')
@@ -121,13 +121,13 @@ with col_A:
             UWw = st.number_input('UWw (kN/m3)', value=10)        # Water unit weight (kN/m3)
             phi = st.number_input('phi (deg)', value=0)         # Triaxial drained friction angle (deg)
             flagGap = st.number_input('Gap in soil?', value=0)     
-            comment(flag_member,'1 = yes, 0 = no')
+            comment(toggle_comment,'1 = yes, 0 = no')
         with col3:
             α1 = st.number_input('α1 (-)', value=0.1)        # Horizontal friction factor along skirt (-)
             Kru = st.number_input('Kru (-)', value=1)         # Earth pressure coefficient (no gap) (-)
             Kru_gap = st.number_input('Kru_gap (-)', value=2)     # Earth pressure coefficient (with gap) (-)
             flagRough = st.number_input('Rough surface?', value=1)   # Is footing rough? 1 for yes, 0 for no
-            comment(flag_member,'1 = yes, 0 = no')
+            comment(toggle_comment,'1 = yes, 0 = no')
 
 
         ## Factors
