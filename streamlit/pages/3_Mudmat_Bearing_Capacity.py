@@ -75,7 +75,8 @@ with col_A:
     tab1, tab2, tab3 = st.tabs(['Input', 'Deduced', 'Output'])
     with tab1:
         st.header(':blue[Input Properties]')
-
+        toggle_comment = st.toggle('Need Comments?')
+            
         ## Foundation Geometry
         st.subheader('Foundation Geometry')
         col1, col2, col3 = st.columns(3)
