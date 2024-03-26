@@ -346,6 +346,8 @@ with col_A:
     with tab3:
         st.header(':red[Resulting Outputs]')
         # 여기에 계산 결과 표시 코드 추가
+        if flag_member == 0:
+            st.write('Please enter the :red[PASSWORD] to get full access.')
 
         ## API
         df_API = pd.DataFrame()
