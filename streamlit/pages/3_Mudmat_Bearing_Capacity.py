@@ -49,28 +49,7 @@ def sidebar():
     st.sidebar.write(':blue[Author]: J.Sohn')
     st.sidebar.write(':blue[Last update]: 03/25/2024')
 
-def main():
-    """메인 함수"""
-    sidebar()
-    st.sidebar.write('Main')
 
-def guest():
-    """게스트 함수"""
-    sidebar()
-    col_A, col_B = st.columns([1,2])
-    with col_A:
-        tab1, tab2, tab3 = st.tabs(['Input', 'Deduced', 'Output'])
-        with tab1:
-            st.header(':blue[Input Properties]')
-            # 여기에 입력 폼 코드 추가
-
-        with tab2:
-            st.header(':green[Deduced Values]')
-            # 여기에 계산 결과 표시 코드 추가
-
-    with col_B:
-        col1, col2, col3 = st.columns(3)
-        # 여기에 그래프 그리는 코드 추가
 
 # ====================================================================
 ## 메인
