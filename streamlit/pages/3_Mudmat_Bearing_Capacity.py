@@ -15,10 +15,14 @@ import matplotlib.pyplot as plt
 #    03/22/2024: csv 파일에서 파라미터를 읽어서 그래프까진 그릴수 있는데, 저장이 안됨. overwrite_csv 펑션이 무용지물 상태
 #    03/25/2024: guest 와 member 용을 따로 나눠서 새로 퍼블릭하게 생성
 
+# ====================================================================
+## 셋업
+st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
+st.header('GeoSohn - Mudmat Bearing Capacity') # 타이틀
+password = st.text_input("Please enter the :red[PASSWORD]") # 비번 확인
 
 # ====================================================================
 ## 서브펑션
-# Note: 너무 간단한 def 들은 굳이 다른데서 안불러오고 각 프로젝트 파일에서 선언 후 사용
 
 def make_envelope_conatant(X):
     last_value = X[-1]
@@ -40,7 +44,8 @@ def sidebar():
     st.sidebar.write(':blue[How to use]: Left columns has three tabs. Please fill out input data to apply updates.')
     st.sidebar.write(':blue[Last update]: 03/20/2024')
 
-# ====================================================================
+
+
 ## 메인
 
 def main():
@@ -404,4 +409,14 @@ def guest():
     
         st.pyplot(fig)
 
-guest()
+
+# ====================================================================
+## 메인
+
+# 비밀번호가 맞으면 실행
+if password == st.secrets['DB_password']:
+    main()
+
+else:
+    guest()
+
