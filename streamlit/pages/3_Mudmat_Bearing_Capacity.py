@@ -473,7 +473,7 @@ with col_B:
             ax[1].plot(0,0,'--',c='C1', label='API WSD allowable')
             ax[1].plot(0,0,'g--', label='API 2GEO allowable')
             ax[1].plot(0,0,'k--', label='ISO 19901-4 allowable')
-        if toggle_LRFD
+        if toggle_LRFD:
             ax[0].plot(df_API['LRFD_Hall'],df_API['LRFD_Vall'],'-.',c='purple', label='API LRFD allowable')
             ax[1].plot(0,0,'-.',c='purple', label='API LRFD allowable')
 
