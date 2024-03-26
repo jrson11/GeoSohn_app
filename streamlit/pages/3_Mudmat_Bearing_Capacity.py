@@ -449,6 +449,7 @@ with col_B:
             toggle_ULT = False
             toggle_WSD = False
             toggle_LRFD = False
+            st.write('Please enter the :red[PASSWORD] to get full access.')
 
 
         fig,ax = plt.subplots(2,1, figsize=(6,7), dpi=200, height_ratios=[3,1])
@@ -515,3 +516,5 @@ with col_B:
     with tab3:
         if flag_member == 1:
             st.image('https://raw.githubusercontent.com/jrson11/GeoSohn_app/main/streamlit/images/Mudmat_bearing_capacity-Diagram.jpg')
+        else:
+            st.write('Please enter the :red[PASSWORD] to get full access.')
