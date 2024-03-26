@@ -361,14 +361,9 @@ with col_A:
 
 
 with col_B:
-        col1,col2,col3 = st.columns(3)
-        
-        with col1:
-            toggle_ULT = st.toggle('Ultimate Capacity')
-        with col2:
-            toggle_WSD = st.toggle('Allowable Loads')
-        with col3:
-            toggle_LRFD = st.toggle('LRFD')
+    tab1, tab2, tab3 = st.tabs(['All Criteria', 'Each'])
+
+    with tab1:
         
         fig,ax = plt.subplots(2,1, figsize=(6,7), dpi=200, height_ratios=[3,1])
         #
@@ -424,5 +419,13 @@ with col_B:
     
         st.pyplot(fig)
 
-
+    with tab2:
+        col1,col2,col3 = st.columns(3)
+        
+        with col1:
+            toggle_ULT = st.toggle('Ultimate Capacity')
+        with col2:
+            toggle_WSD = st.toggle('Allowable Loads')
+        with col3:
+            toggle_LRFD = st.toggle('LRFD')
 
