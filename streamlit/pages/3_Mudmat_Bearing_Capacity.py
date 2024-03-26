@@ -430,5 +430,5 @@ with col_B:
             toggle_LRFD = st.toggle('LRFD')
 
     with tab3:
-        pass
+        st.image('https://github.com/jrson11/GeoSohn_app/blob/main/streamlit/images/Mudmat_bearing_capacity-Diagram.jpg')
 
