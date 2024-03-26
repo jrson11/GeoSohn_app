@@ -6,6 +6,8 @@ import streamlit as st
 st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
 st.header('GeoSohn - Web App') # 타이틀
 
+# ====================================================================
+## 메인
 def main():
     st.write(':blue[Purpose]: To develop engineering tools for innovative work automation')
     st.write(':blue[Author]: :green[Jung.Sohn]')
