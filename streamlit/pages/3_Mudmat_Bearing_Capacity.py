@@ -361,7 +361,7 @@ with col_A:
 
 
 with col_B:
-    tab1, tab2, tab3 = st.tabs(['All Criteria', 'Each'])
+    tab1, tab2 = st.tabs(['All', 'Each'])
 
     with tab1:
         
