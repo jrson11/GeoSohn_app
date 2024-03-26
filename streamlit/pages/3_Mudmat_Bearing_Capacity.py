@@ -57,6 +57,12 @@ def sidebar():
 ## 사이다바를 통한 코드 내용 설명
 sidebar()
 
+## 비밀번호를 통해서 멤버쉽 확인
+if password == st.secrets['DB_password']:
+    flat_member = 1
+else:
+    flat_member = 0
+
 ## 두열로 나눠서 좌측에는 파라미터, 우측에는 플롯팅
 col_A, col_B = st.columns([1,2])
 
@@ -126,23 +132,6 @@ with col_A:
     with tab2:
         st.header(':green[Deduced Values]')
         # 여기에 계산 결과 표시 코드 추가
-
-
-
-with col_B:
-    col1, col2, col3 = st.columns(3)
-    # 여기에 그래프 그리는 코드 추가
-
-
-
-'''
-
-
-
-
-
-        with tab2:
-            st.header(':green[Deduced Values]')   
 
         ## Effective area
         eB = Mext_B/(Vext+SW)   # Eccentricity in B (m)
@@ -312,9 +301,9 @@ with col_B:
         ISO_Hall = make_envelope_conatant(iso_H_a)
         ISO_Vall = make_envelope_decrease(iso_Qv_a)
 
-
-        #with tab3:
-        #st.header(':red[Results]')   
+    with tab3:
+        st.header(':red[Resulting Outputs]')
+        # 여기에 계산 결과 표시 코드 추가
 
         ## API
         df_API = pd.DataFrame()
@@ -371,10 +360,7 @@ with col_B:
         FS_geo_ult = round(max_Qd_geo_ult/resultant_QhQv,2)
 
 
-    
-    with col_B:
-        col1,col2,col3 = st.columns(3)
-
+with col_B:
         with col1:
             toggle_ULT = st.toggle('Ultimate')
         with col2:
@@ -437,14 +423,4 @@ with col_B:
         st.pyplot(fig)
 
 
-# ====================================================================
-## 메인
 
-# 비밀번호가 맞으면 실행
-if password == st.secrets['DB_password']:
-    main()
-
-else:
-    guest()
-
-'''
