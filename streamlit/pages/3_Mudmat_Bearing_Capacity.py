@@ -76,7 +76,7 @@ with col_A:
     with tab1:
         st.header(':blue[Input Properties]')
         if flag_member == 1:
-            toggle_comment = st.toggle('Need Comments?')
+            toggle_comment = st.toggle('Need Parameter Descriptions?')
             
         ## Foundation Geometry
         st.subheader('Foundation Geometry')
