@@ -444,6 +444,16 @@ with col_B:
         with col3:
             toggle_LRFD = st.toggle('LRFD')
 
+        fig,ax = plt.subplots(2,1, figsize=(6,7), dpi=200, height_ratios=[3,1])
+        #
+        ax[0].plot(H_B_base,Vext_base, 'ro', label='Load at the base')
+        ax[0].text(H_B_base*0.7,Vext_base*0.9, '('+str(H_B_base)+','+str(Vext_base)+')')
+        if D == 0:
+            pass
+        else:
+            ax[0].plot(Hext,Vext+SW, 'bx', label='Load at the mudline')
+        ax[0].text(Hext*0.7,(Vext+SW)*0.9, '('+str(Hext)+','+str(Vext)+')',color='b')
+
     with tab3:
         if flag_member == 1:
             st.image('https://raw.githubusercontent.com/jrson11/GeoSohn_app/main/streamlit/images/Mudmat_bearing_capacity-Diagram.jpg')
