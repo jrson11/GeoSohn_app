@@ -361,10 +361,12 @@ with col_A:
 
 
 with col_B:
+        col1,col2,col3 = st.columns(3)
+        
         with col1:
-            toggle_ULT = st.toggle('Ultimate')
+            toggle_ULT = st.toggle('Ultimate Capacity')
         with col2:
-            toggle_WSD = st.toggle('Allowable')
+            toggle_WSD = st.toggle('Allowable Loads')
         with col3:
             toggle_LRFD = st.toggle('LRFD')
         
