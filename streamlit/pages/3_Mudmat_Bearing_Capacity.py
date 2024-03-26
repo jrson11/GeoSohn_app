@@ -104,7 +104,9 @@ with col_A:
             comment(flag_member,'angle_between_Hext_and_long_axis')
         with col3:
             Mext_B = st.number_input('Mext_B (kNm)', value=0) # Moment in B direction (kNm)
+            comment(flag_member,'Moment in B direction')
             Mext_L = st.number_input('Mext_L (kNm)', value=0) # Moment in L direction (kNm)
+            comment(flag_member,'Moment in L direction')
 
         ## Soil
         st.subheader('Soil')
@@ -117,13 +119,14 @@ with col_A:
             UWw = st.number_input('UWw (kN/m3)', value=10)        # Water unit weight (kN/m3)
             phi = st.number_input('phi (deg)', value=0)         # Triaxial drained friction angle (deg)
             flagGap = st.number_input('Gap in soil?', value=0)     
-            st.write('1 = yes, 0 = no')
+            comment(flag_member,'1 = yes, 0 = no')
         with col3:
             α1 = st.number_input('α1 (-)', value=0.1)        # Horizontal friction factor along skirt (-)
             Kru = st.number_input('Kru (-)', value=1)         # Earth pressure coefficient (no gap) (-)
             Kru_gap = st.number_input('Kru_gap (-)', value=2)     # Earth pressure coefficient (with gap) (-)
             flagRough = st.number_input('Rough surface?', value=1)   # Is footing rough? 1 for yes, 0 for no
-            st.write('1 = yes, 0 = no')
+            comment(flag_member,'1 = yes, 0 = no')
+
 
         ## Factors
         st.subheader('Factors')
