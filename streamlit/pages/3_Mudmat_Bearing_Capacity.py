@@ -188,7 +188,7 @@ with col_A:
         api_Kc = api_ic*Sc                          # Note: p243 (C6.13.1-3)
         api_Qv = Aeff*(Su_bear*Nc*api_Kc+(SUW+UWw)*D)
         #
-        API_Hult = make_envelope_conatant(api_H)
+        API_Hult = make_envelope_constant(api_H)
         API_Vult = make_envelope_decrease(api_Qv)
 
 
@@ -243,13 +243,13 @@ with col_A:
         geo_Kc = 1 + geo_sc + geo_dc - geo_ic
         geo_Qv = Aeff*(SUW*D + F*(Nc*Cu0 + k*Beff/4)*geo_Kc)
         #
-        GEO_Hult = make_envelope_conatant(geo_H)
+        GEO_Hult = make_envelope_constant(geo_H)
         GEO_Vult = make_envelope_decrease(geo_Qv)
         #
         geo_Hall = geo_H/FSslid_API     #<--------------  Resistance / FS
         geo_Vall = geo_Qv/FSbear_API
         #
-        GEO_Hall = make_envelope_conatant(geo_Hall)
+        GEO_Hall = make_envelope_constant(geo_Hall)
         GEO_Vall = make_envelope_decrease(geo_Vall)
 
     
@@ -284,7 +284,7 @@ with col_A:
         iso_Kc = 1 + iso_sc + iso_dc - iso_ic
         iso_Qv = Aeff*(SUW*D + F*(Nc*Cu0 + k*Beff/4)*iso_Kc)
         #
-        ISO_Qh = make_envelope_conatant(iso_H)
+        ISO_Qh = make_envelope_constant(iso_H)
         ISO_Qv = make_envelope_decrease(iso_Qv)
 
         ## Allowable
@@ -298,7 +298,7 @@ with col_A:
         iso_Kc_a = 1 + iso_sc_a + iso_dc_a - iso_ic_a
         iso_Qv_a = (1/γ_loadV1_ISO)*Aeff*(SUW*D + F*(Nc*Cu0 + k*Beff/4)*iso_Kc_a/γ_mat_ISO)
         #
-        ISO_Hall = make_envelope_conatant(iso_H_a)
+        ISO_Hall = make_envelope_constant(iso_H_a)
         ISO_Vall = make_envelope_decrease(iso_Qv_a)
 
     with tab3:
