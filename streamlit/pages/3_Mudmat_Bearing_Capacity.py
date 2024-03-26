@@ -43,7 +43,8 @@ def sidebar():
     st.sidebar.subheader('Special thanks to the my Advisor P.Jeanjean, Ph.D., P.E., F.ASCE')
     st.sidebar.write(':blue[Purpose]: To estimate Factor of Safety from offshore mudmat bearing capacity analysis with CLAY soils.')
     st.sidebar.write(':blue[How to use]: Left columns has three tabs. Please fill out input data to apply updates.')
-    st.sidebar.write(':blue[Last update]: 03/20/2024')
+    st.sidebar.write(':blue[Authour]: J.Sohn')
+    st.sidebar.write(':blue[Last update]: 03/25/2024')
 
 
 def main():
@@ -53,7 +54,6 @@ def main():
 
 def guest():
     sidebar()
-    st.write('Please contact to :green[Jung] to get the updated :red[PASSWORD].')
 
     col_A, col_B = st.columns([1,2])
 
