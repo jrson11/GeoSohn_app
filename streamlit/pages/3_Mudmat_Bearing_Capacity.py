@@ -54,7 +54,10 @@ def sidebar():
 def comment(toggle,X):
     if toggle == True:
         st.write(X)
-
+        
+def value(toggle,X,Y,Z):
+    if toggle == True:
+        st.write(X+' = '+str(Y),': ',Z)
 
 # ====================================================================
 ## 메인
@@ -149,6 +152,11 @@ with col_A:
     with tab2:
         st.header(':green[Deduced Values]')
         # 여기에 계산 결과 표시 코드 추가
+        if flag_member == 1:
+            toggle_value = True
+        else
+            toggle_value = False
+            st.write('Please enter the :red[PASSWORD] to get full access.')
 
         ## Effective area
         eB = Mext_B/(Vext+SW)   # Eccentricity in B (m)
@@ -158,7 +166,9 @@ with col_A:
         Aeff = Beff*Leff        # Effective area (m2)
         if eB < 0 or eL < 0:
             print('ERROR in effective area ------------------------------------------')
-
+        #
+        value(toggle_value,'eB',eB,'Eccentricity in B')
+        
         ## Vertical load transfer
         Wplug = SUW*D*Aeff                  # Weight of soil plug (kN)
         Vext_base = round(SW+Vext+Wplug)    # Vertical load at base (kN)
