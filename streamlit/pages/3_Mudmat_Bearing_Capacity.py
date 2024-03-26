@@ -22,6 +22,8 @@ st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
 st.header('GeoSohn - Mudmat Bearing Capacity') # 타이틀
 password = st.text_input("Please enter the :red[PASSWORD] to get full access.") # 비번 확인
 
+
+
 # ====================================================================
 ## 서브펑션
 
@@ -49,6 +51,9 @@ def sidebar():
     st.sidebar.write(':blue[Author]: J.Sohn')
     st.sidebar.write(':blue[Last update]: 03/25/2024')
 
+def comment(flag_member,X):
+    if flag_member == 1:
+        st.write(X)
 
 
 # ====================================================================
@@ -76,6 +81,7 @@ with col_A:
         col1, col2, col3 = st.columns(3)
         with col1:
             B = st.number_input('B (m)', value=10)    # Witdh (m)
+            comment(flag_member,'Witdh'):
         with col2:
             L = st.number_input('L (m)', value=10)    # Length (m)
         with col3:
