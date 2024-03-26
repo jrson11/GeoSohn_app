@@ -81,7 +81,7 @@ with col_A:
         col1, col2, col3 = st.columns(3)
         with col1:
             B = st.number_input('B (m)', value=10)    # Witdh (m)
-            comment(flag_member,'Witdh'):
+            comment(flag_member,'Witdh')
         with col2:
             L = st.number_input('L (m)', value=10)    # Length (m)
         with col3:
