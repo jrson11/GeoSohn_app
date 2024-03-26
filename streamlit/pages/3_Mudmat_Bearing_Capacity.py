@@ -361,7 +361,7 @@ with col_A:
 
 
 with col_B:
-    tab1, tab2 = st.tabs(['All', 'Each'])
+    tab1, tab2, tab3 = st.tabs(['All', 'Each', 'Diagram'])
 
     with tab1:
         
@@ -428,4 +428,7 @@ with col_B:
             toggle_WSD = st.toggle('Allowable Loads')
         with col3:
             toggle_LRFD = st.toggle('LRFD')
+
+    with tab3:
+        pass
 
