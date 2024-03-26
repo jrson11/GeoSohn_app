@@ -25,6 +25,93 @@ password = st.text_input("Please enter the :red[PASSWORD] to get full access.") 
 # ====================================================================
 ## 서브펑션
 
+def make_envelope_constant(X):
+    """주어진 배열의 마지막 값과 같은 값을 가진 배열을 생성하여 연결"""
+    last_value = X[-1]
+    ns = len(X)
+    dummy = np.linspace(last_value, last_value, ns)
+    Y = np.concatenate((X, dummy), axis=0)
+    return Y
+
+def make_envelope_decrease(X):
+    """주어진 배열의 마지막 값에서 시작하여 0까지 감소하는 값을 가진 배열을 생성하여 연결"""
+    last_value = X[-1]
+    ns = len(X)
+    dummy = np.linspace(last_value, 0, ns)
+    Y = np.concatenate((X, dummy), axis=0)
+    return Y
+
+def sidebar():
+    """사이드바 설정"""
+    st.sidebar.subheader('Special thanks to the my Advisor P.Jeanjean, Ph.D., P.E., F.ASCE')
+    st.sidebar.write(':blue[Purpose]: To estimate Factor of Safety from offshore mudmat bearing capacity analysis with CLAY soils.')
+    st.sidebar.write(':blue[How to use]: Left columns has three tabs. Please fill out input data to apply updates.')
+    st.sidebar.write(':blue[Author]: J.Sohn')
+    st.sidebar.write(':blue[Last update]: 03/25/2024')
+
+def main():
+    """메인 함수"""
+    sidebar()
+    st.sidebar.write('Main')
+
+def guest():
+    """게스트 함수"""
+    sidebar()
+    col_A, col_B = st.columns([1,2])
+    with col_A:
+        tab1, tab2, tab3 = st.tabs(['Input', 'Deduced', 'Output'])
+        with tab1:
+            st.header(':blue[Input Properties]')
+            # 여기에 입력 폼 코드 추가
+
+        with tab2:
+            st.header(':green[Deduced Values]')
+            # 여기에 계산 결과 표시 코드 추가
+
+    with col_B:
+        col1, col2, col3 = st.columns(3)
+        # 여기에 그래프 그리는 코드 추가
+
+# ====================================================================
+## 메인
+
+# 비밀번호가 맞으면 실행
+if password == st.secrets['DB_password']:
+    main()
+else:
+    guest()
+
+
+
+
+'''
+import streamlit as st
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+## log
+#    02/28/2024: 진진 박사님께서 본인의 엑셀 템플릿 공유
+#    03/13/2024: 첫번째 버전 완성
+#    03/14/2024: 진진 박사님께 처음으로 시연
+#    03/14/2024: 클래스를 사용한 객체화 시도
+#    03/15/2024: Private 레퍼지토리를 사용하면 아무도 공유못한다는 사실 확인 (좌절), 하지만 Public 은 보안문제로 안만들기로 결정
+#    03/16/2024: pyplot 그림이 맘에 안들어서 plotly 추가
+#    03/19/2024: 클래스 객체화를 통한 Tortue 구축
+#    03/20/2024: 클래스 너무 더러워서 중간 포기. 전체 스트럭쳐 재구성 노가다. 첫번째 예제 파일은 클래스 없이 가기로 결정
+#    03/22/2024: csv 파일에서 파라미터를 읽어서 그래프까진 그릴수 있는데, 저장이 안됨. overwrite_csv 펑션이 무용지물 상태
+#    03/25/2024: guest 와 member 용을 따로 나눠서 새로 퍼블릭하게 생성
+
+
+# ====================================================================
+## 셋업
+st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
+st.header('GeoSohn - Mudmat Bearing Capacity') # 타이틀
+password = st.text_input("Please enter the :red[PASSWORD] to get full access.") # 비번 확인
+
+# ====================================================================
+## 서브펑션
+
 def make_envelope_conatant(X):
     last_value = X[-1]
     ns = len(X)
@@ -427,3 +514,4 @@ if password == st.secrets['DB_password']:
 else:
     guest()
 
+'''
