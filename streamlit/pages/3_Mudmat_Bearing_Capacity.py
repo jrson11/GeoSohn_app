@@ -336,7 +336,7 @@ with col_A:
         df_ISO['ISO_Vall'].fillna(-1, inplace=True)
         #
         interp_H = np.interp(iso_H,geo_Hall,geo_Vall)
-        INTERP_H = make_envelope_conatant(interp_H)
+        INTERP_H = make_envelope_constant(interp_H)
         df_ISO['GEO_Vall'] = INTERP_H
         df_ISO['min_Vall'] = df_ISO[['GEO_Vall','ISO_Vall']].min(axis=1)
 
