@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 ## 셋업
 st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
 st.header('GeoSohn - Mudmat Bearing Capacity') # 타이틀
-password = st.text_input("Please enter the :red[PASSWORD]") # 비번 확인
+password = st.text_input("Please enter the :red[PASSWORD] to get full access.") # 비번 확인
 
 # ====================================================================
 ## 서브펑션
@@ -46,9 +46,6 @@ def sidebar():
     st.sidebar.write(':blue[Last update]: 03/20/2024')
 
 
-
-## 메인
-
 def main():
     sidebar()
     st.sidebar.write('Main')
@@ -56,7 +53,7 @@ def main():
 
 def guest():
     sidebar()
-    st.write('Guest')
+    st.write('Please contact to :green[Jung] to get the updated :red[PASSWORD].')
 
     col_A, col_B = st.columns([1,2])
 
