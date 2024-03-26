@@ -75,138 +75,92 @@ def guest():
 # ====================================================================
 ## 메인
 
-# 비밀번호가 맞으면 실행
-if password == st.secrets['DB_password']:
-    main()
-else:
-    guest()
+## 사이다바를 통한 코드 내용 설명
+sidebar()
 
+## 두열로 나눠서 좌측에는 파라미터, 우측에는 플롯팅
+col_A, col_B = st.columns([1,2])
+
+with col_A:
+    tab1, tab2, tab3 = st.tabs(['Input', 'Deduced', 'Output'])
+    with tab1:
+        st.header(':blue[Input Properties]')
+
+        ## Foundation Geometry
+        st.subheader('Foundation Geometry')
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            B = st.number_input('B (m)', value=10)    # Witdh (m)
+        with col2:
+            L = st.number_input('L (m)', value=10)    # Length (m)
+        with col3:
+            D = st.number_input('D (m)', value=0)     # Embedment (m)
+
+        ## Loads
+        st.subheader('Loads')
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            SW = st.number_input('SW (kN)', value=0)         # Self weight (kN)
+            Vext = st.number_input('Vext (kN)', value=2000)  # External Vertical load (kN)
+        with col2:
+            Hext = st.number_input('Hext (kN)', value=500)   # External Horizontal load (kN)
+            θ = st.number_input('θ (deg)', value=0)           # angle between Hext and long axis (deg)
+        with col3:
+            Mext_B = st.number_input('Mext_B (kNm)', value=0) # Moment in B direction (kNm)
+            Mext_L = st.number_input('Mext_L (kNm)', value=0) # Moment in L direction (kNm)
+
+        ## Soil
+        st.subheader('Soil')
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            Su0 = st.number_input('Su0 (kPa)', value=10)        # Shear strength at mudline (kPa)
+            k = st.number_input('k (kPa/m)', value=0)           # rate of increasment with depth (kPa/m)
+        with col2:
+            SUW = st.number_input('SUW (kN/m3)', value=4)         # Average submerged unit weight (kN/m3)
+            UWw = st.number_input('UWw (kN/m3)', value=10)        # Water unit weight (kN/m3)
+            phi = st.number_input('phi (deg)', value=0)         # Triaxial drained friction angle (deg)
+            flagGap = st.number_input('Gap in soil?', value=0)     
+            st.write('1 = yes, 0 = no')
+        with col3:
+            α1 = st.number_input('α1 (-)', value=0.1)        # Horizontal friction factor along skirt (-)
+            Kru = st.number_input('Kru (-)', value=1)         # Earth pressure coefficient (no gap) (-)
+            Kru_gap = st.number_input('Kru_gap (-)', value=2)     # Earth pressure coefficient (with gap) (-)
+            flagRough = st.number_input('Rough surface?', value=1)   # Is footing rough? 1 for yes, 0 for no
+            st.write('1 = yes, 0 = no')
+
+        ## Factors
+        st.subheader('Factors')
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            FSbear_API = st.number_input('FSbear_API', value=2)
+            FSslid_API = st.number_input('FSslid_API', value=1.5)
+        with col2:
+            γ_load_LRFD = st.number_input('γ_load_LRFD', value=1.35)
+            γ_bear_LRFD = st.number_input('γ_bear_LRFD', value=0.67)
+            γ_slid_LRFD = st.number_input('γ_slid_LRFD', value=0.8)
+        with col3:
+            γ_loadV1_ISO = st.number_input('γ_loadV1_ISO', value=1.35)
+            γ_loadV2_ISO = st.number_input('γ_loadV2_ISO', value=1.225)
+            γ_loadH_ISO = st.number_input('γ_loadH_ISO', value=1.35)
+            γ_mat_ISO = st.number_input('γ_mat_ISO', value=1.25)
+
+    with tab2:
+        st.header(':green[Deduced Values]')
+        # 여기에 계산 결과 표시 코드 추가
+
+
+
+with col_B:
+    col1, col2, col3 = st.columns(3)
+    # 여기에 그래프 그리는 코드 추가
 
 
 
 '''
-import streamlit as st
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-
-## log
-#    02/28/2024: 진진 박사님께서 본인의 엑셀 템플릿 공유
-#    03/13/2024: 첫번째 버전 완성
-#    03/14/2024: 진진 박사님께 처음으로 시연
-#    03/14/2024: 클래스를 사용한 객체화 시도
-#    03/15/2024: Private 레퍼지토리를 사용하면 아무도 공유못한다는 사실 확인 (좌절), 하지만 Public 은 보안문제로 안만들기로 결정
-#    03/16/2024: pyplot 그림이 맘에 안들어서 plotly 추가
-#    03/19/2024: 클래스 객체화를 통한 Tortue 구축
-#    03/20/2024: 클래스 너무 더러워서 중간 포기. 전체 스트럭쳐 재구성 노가다. 첫번째 예제 파일은 클래스 없이 가기로 결정
-#    03/22/2024: csv 파일에서 파라미터를 읽어서 그래프까진 그릴수 있는데, 저장이 안됨. overwrite_csv 펑션이 무용지물 상태
-#    03/25/2024: guest 와 member 용을 따로 나눠서 새로 퍼블릭하게 생성
 
 
-# ====================================================================
-## 셋업
-st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
-st.header('GeoSohn - Mudmat Bearing Capacity') # 타이틀
-password = st.text_input("Please enter the :red[PASSWORD] to get full access.") # 비번 확인
-
-# ====================================================================
-## 서브펑션
-
-def make_envelope_conatant(X):
-    last_value = X[-1]
-    ns = len(X)
-    dummy = np.linspace(last_value,last_value,ns)
-    Y = np.concatenate((X,dummy), axis=0)
-    return Y
-
-def make_envelope_decrease(X):
-    last_value = X[-1]
-    ns = len(X)
-    dummy = np.linspace(last_value,0,ns)
-    Y = np.concatenate((X,dummy), axis=0)
-    return Y
-
-def sidebar():
-    st.sidebar.subheader('Special thanks to the my Advisor P.Jeanjean, Ph.D., P.E., F.ASCE')
-    st.sidebar.write(':blue[Purpose]: To estimate Factor of Safety from offshore mudmat bearing capacity analysis with CLAY soils.')
-    st.sidebar.write(':blue[How to use]: Left columns has three tabs. Please fill out input data to apply updates.')
-    st.sidebar.write(':blue[Authour]: J.Sohn')
-    st.sidebar.write(':blue[Last update]: 03/25/2024')
 
 
-def main():
-    sidebar()
-    st.sidebar.write('Main')
-
-
-def guest():
-    sidebar()
-
-    col_A, col_B = st.columns([1,2])
-
-    with col_A:
-        tab1,tab2,tab3 = st.tabs(['Input','Deduced','Output'])
-
-        with tab1:
-            st.header(':blue[Input Properties]')
-
-            ## Foundation Geometry
-            st.subheader('Foundation Geometry')
-            col_g1,col_g2,col_g3 = st.columns(3)
-            with col_g1:
-                B = st.number_input('B (m)', value = 10)
-            with col_g2:
-                L = st.number_input('L (m)', value = 10)      # Length (m)
-            with col_g3:
-                D = st.number_input('D (m)', value = 0)       # Embedment (m)
-
-            ## Loads
-            st.subheader('Loads')
-            col_l1,col_l2,col_l3 = st.columns(3)
-            with col_l1:
-                SW = st.number_input('SW (kN)', value = 0)         # Self weight (kN)
-                Vext = st.number_input('Vext (kN)', value = 2000)  # External Vertical load (kN)
-            with col_l2:
-                Hext = st.number_input('Hext (kN)', value = 500)   # External Horizontal load (kN)
-                θ = st.number_input('θ (deg)', value = 0)           # angle between Hext and long axis (deg)
-            with col_l3:
-                Mext_B = st.number_input('Mext_B (kNm)', value = 0) # Moment in B direction (kNm)
-                Mext_L = st.number_input('Mext_L (kNm)', value = 0) # Moment in L direction (kNm)
-
-            ## Soil
-            st.subheader('Soil')
-            col_s1,col_s2,col_s3 = st.columns(3)
-            with col_s1:
-                Su0 = st.number_input('Su0 (kPa)', value = 10)        # Shear strength at mudline (kPa)
-                k = st.number_input('k (kPa/m)', value = 0)           # rate of increasment with depth (kPa/m)
-            with col_s2:
-                SUW = st.number_input('SUW (kN/m3)', value = 4)         # Average submerged unit weight (kN/m3)
-                UWw = st.number_input('UWw (kN/m3)', value = 10)        # Water unit weight (kN/m3)
-                phi = st.number_input('phi (deg)', value = 0)         # Triaxial drained friction angle (deg)
-                flagGap = st.number_input('Gap in soil?' , value = 0)     
-                st.write('1 = yes, 0 = no')
-            with col_s3:
-                α1 = st.number_input('α1 (-) ', value = 0.1)        # Horizontal friction factor along skirt (-)
-                Kru = st.number_input('Kru (-) ', value = 1)         # Earth pressure coefficient (no gap) (-)
-                Kru_gap = st.number_input('Kru_gap (-) ', value = 2)     # Earth pressure coefficient (with gap) (-)
-                flagRough = st.number_input('Rough surface?', value = 1)   # Is footing rough? 1 for yes, 0 for no
-                st.write('1 = yes, 0 = no')
-
-            ## Factors
-            st.subheader('Factors')
-            col_f1,col_f2,col_f3 = st.columns(3)
-            with col_f1:
-                FSbear_API = st.number_input('FSbear_API', value = 2)
-                FSslid_API = st.number_input('FSslid_API', value = 1.5)
-            with col_f2:
-                γ_load_LRFD = st.number_input('γ_load_LRFD', value = 1.35)
-                γ_bear_LRFD = st.number_input('γ_bear_LRFD', value = 0.67)
-                γ_slid_LRFD = st.number_input('γ_slid_LRFD', value = 0.8)
-            with col_f3:
-                γ_loadV1_ISO = st.number_input('γ_loadV1_ISO', value = 1.35)
-                γ_loadV2_ISO = st.number_input('γ_loadV2_ISO', value = 1.225)
-                γ_loadH_ISO = st.number_input('γ_loadH_ISO', value = 1.35)
-                γ_mat_ISO = st.number_input('γ_mat_ISO', value = 1.25)
 
         with tab2:
             st.header(':green[Deduced Values]')   
