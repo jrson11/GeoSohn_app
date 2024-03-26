@@ -167,11 +167,18 @@ with col_A:
         if eB < 0 or eL < 0:
             print('ERROR in effective area ------------------------------------------')
         #
-        value(toggle_value,'eB',eB,'Eccentricity in B')
+        value(toggle_value,'eB',eB,'Eccentricity in B (m)')
+        value(toggle_value,'eL',eL,'Eccentricity in L (m)')
+        value(toggle_value,'Beff',Beff,'Effective width (m)')
+        value(toggle_value,'Leff',Leff,'Effective length (m)')
+        value(toggle_value,'Aeff',Aeff,'Effective area (m2)')
         
         ## Vertical load transfer
         Wplug = SUW*D*Aeff                  # Weight of soil plug (kN)
         Vext_base = round(SW+Vext+Wplug)    # Vertical load at base (kN)
+        #
+        value(toggle_value,'Wplug',Wplug,'Weight of soil plug (kN)')
+        value(toggle_value,'Vext_base',Vext_base,'Vertical load at base (kN)')
         
         ## Horizontal load transfer
         Hext_B = Hext*np.sin(θ*np.pi/180)
