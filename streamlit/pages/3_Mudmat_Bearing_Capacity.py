@@ -435,14 +435,21 @@ with col_B:
         st.pyplot(fig)
 
     with tab2:
-        col1,col2,col3 = st.columns(3)
+
+        if flag_member == 1:
+            col1,col2,col3 = st.columns(3)
         
-        with col1:
-            toggle_ULT = st.toggle('Ultimate Capacity')
-        with col2:
-            toggle_WSD = st.toggle('Allowable Loads')
-        with col3:
-            toggle_LRFD = st.toggle('LRFD')
+            with col1:
+                toggle_ULT = st.toggle('Ultimate Capacity')
+            with col2:
+                toggle_WSD = st.toggle('Allowable Loads')
+            with col3:
+                toggle_LRFD = st.toggle('LRFD')
+        else:
+            toggle_ULT = False
+            toggle_WSD = False
+            toggle_LRFD = False
+
 
         fig,ax = plt.subplots(2,1, figsize=(6,7), dpi=200, height_ratios=[3,1])
         #
