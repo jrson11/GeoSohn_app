@@ -59,9 +59,9 @@ sidebar()
 
 ## 비밀번호를 통해서 멤버쉽 확인
 if password == st.secrets['DB_password']:
-    flat_member = 1
+    flag_member = 1
 else:
-    flat_member = 0
+    flag_member = 0
 
 ## 두열로 나눠서 좌측에는 파라미터, 우측에는 플롯팅
 col_A, col_B = st.columns([1,2])
