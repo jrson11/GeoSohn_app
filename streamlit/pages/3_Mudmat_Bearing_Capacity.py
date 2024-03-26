@@ -154,7 +154,7 @@ with col_A:
         # 여기에 계산 결과 표시 코드 추가
         if flag_member == 1:
             toggle_value = True
-        else
+        else:
             toggle_value = False
             st.write('Please enter the :red[PASSWORD] to get full access.')
 
