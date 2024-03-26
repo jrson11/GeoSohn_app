@@ -353,6 +353,15 @@ def guest():
 
     
     with col_B:
+        col1,col2,col3 = st.columns(3)
+
+        with col1:
+            toggle_ULT = st.toggle('Ultimate')
+        with col2:
+            toggle_WSD = st.toggle('Allowable')
+        with col3:
+            toggle_LRFD = st.toggle('LRFD')
+        
         fig,ax = plt.subplots(2,1, figsize=(6,7), dpi=200, height_ratios=[3,1])
         #
         ax[0].plot(H_B_base,Vext_base, 'ro', label='Load at the base')
