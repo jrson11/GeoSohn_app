@@ -6,8 +6,7 @@ import streamlit as st
 st.set_page_config(layout="wide") # 페이지 설정을 wide 모드로 설정
 st.header('GeoSohn - Web App') # 타이틀
 
-# 비밀번호가 틀리면 안내 메시지 출력
-else:
+def main():
     st.write(':blue[Purpose]: To develop engineering tools for innovative work automation')
     st.write(':blue[Author]: :green[Jung.Sohn]')
     st.subheader(':blue[Features]')
@@ -16,3 +15,5 @@ else:
     st.write('    3. :green[Digital Twins]: Previous data will be converted into digital to prepare the Data Science era.')
     #
     st.image('https://geosohn.readthedocs.io/en/latest/_images/Canvas_of_Offshore_Geotech(Sep2023).png')
+
+main()
